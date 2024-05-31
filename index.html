@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Установка заголовка страницы -->
+<title>Превью</title>
+<!-- Подключение файла со стилями -->
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+<!-- Заголовок-ссылка для перехода в социальную сеть -->
+<h1><a href="http://localhost/Ursegov/МДК%2008.01/3.1/">Нажмите для перехода в социальную сеть</a></h1>
+<!-- Создание общего контейнера слайд-шоу -->
+<div class="slideshow-container">
+<!-- Контейнеры для отображения картинок и текста -->
+<div class="mySlides fade">
+<img src="img1.png" style="width:100%">
+<div class="text">Добро пожаловать в новую социальную сеть!</div>
+</div>
+<div class="mySlides fade">
+<img src="img2.png" style="width:100%">
+<div class="text">Все мы стремимся к самовыражению, поэтому в социальной сети
+вы сможете загружать свои картинки в профиль</div>
+</div>
+<div class="mySlides fade">
+<img src="img3.png" style="width:100%">
+<div class="text">Какая же социальная сеть без общения? Здесь вы сможете
+общаться абсолютно с каждым</div>
+</div>
+<div class="mySlides fade">
+<img src="img4.png" style="width:100%">
+<div class="text">Одной из особенностей этой социальной сети является
+наличие встроенного магазина</div>
+</div>
+<div class="mySlides fade">
+<img src="img5.png" style="width:100%">
+<div class="text">Если вы устали на работе и захотите расслабиться и
+    развлечься, то в социальной сети предусмотрено несколько классических игр</div>
+    </div>
+    <div class="mySlides fade">
+    <img src="img6.png" style="width:100%">
+    <div class="text">Так же Вы сможете делиться своими новостями, а также
+    публиковать различные посты со своими наблюдениями</div>
+    </div>
+    <!-- Кнопки для перехода между слайдами -->
+    <a class="prev" onclick="plusSlides(-1); showSlides()">&#10094;</a>
+    <a class="next" onclick="plusSlides(1); showSlides()">&#10095;</a>
+    </div>
+    <!-- Алгоритм демонстрации слайдов -->
+    <script>
+    // Переменная для хранения текущего индекса слайда
+    var slideIndex = 0;
+    var slideTimer;
+    // Функция для отображения слайдов
+    function showSlides() {
+    var i;
+    // Получаем элемент mySlides
+    var slides = document.getElementsByClassName("mySlides");
+    // Условие для перехода с последней картинки на первую
+    // Если передаваемый параметр больше длины массива, то в переменную указываем
+    // первой картинки
+    if (slideIndex >= slides.length) {slideIndex = 0}
+    // Условие для перехода с первой картинки на последнюю
+    // Если передаваемый параметр меньше 1, то в переменную помещаем значение длины
+    // массива. Это значение соответствует последнему номеру картинки
+    if (slideIndex < 0) {slideIndex = slides.length - 1}
+    // Цикл, с помощью которого проходимся по всем картинкам
+    for (i = 0; i < slides.length; i++) {
+    // Отключаем отображение, всем картинкам
+    slides[i].style.display = "none";
+    }
+    slides[slideIndex].style.display = "block"; // Отображение текущего слайда
+    // Установка таймера для автоматического переключения слайдов каждые 10 секунд
+    slideTimer = setTimeout(function() {
+    plusSlides(1); // Переход к следующему слайду
+    showSlides();
+    }, 10000);
+    }
+    // Вызов функции showSlides() для отображения первого слайда
+    showSlides();
+    // Функция для переключения слайдов вперёд/назад
+    function plusSlides(n) {
+    clearTimeout(slideTimer); // Остановка таймера
+    slideIndex += n;
+}
+</script>
+</body>
+</html>
